@@ -24,3 +24,14 @@ la barrera se levanta automaticamente.
 
 ***************************************************************************************************************************************************************************************************************************
 **IMPLEMENTACION Parking Ticket Dispenser Machine (Entry)**
+
+En una primera instancia, tenemos una implementación básica para pdoer visualizar fisicamente qué es lo que ocurre con uno de los tantos escenarios que
+podemos encontrarnos. El "problema" que podría haber con este tipo de implementación es que está completamente ligado con el hardware aplicado, ya que
+si quisieramos cambiar de sensor, en el módulo de procesar, tiene que seguir creyendo que es el sensor viejo.
+Luego, cuando pasamos a la segunda instancia de módulos, ya vemos que esto no sucedería porque agrupa todos los sensores en una misma interfaz, pero aún
+neceistamos ser más específicos respecto a los mensajes que se envían entre los módulos.
+Por última instancia, tenemos el modelo final, aquí ya tenemos prácticamente todo lo que necesitamos para poder implementar la lógica programable detrás de
+este sistema. Tenemoos un arquitectura que se basa principalmente en la utilización del Cyclic Executive con una comunicación basada en cola de eventos/mensajes.
+Este tipo de implementación nos garantiza tiempos de respuestas fijos, ya que cada 1ms el sistema revisará los sensores, proocesará la lógica y actualizará los
+actuadores.
+
