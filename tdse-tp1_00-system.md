@@ -3,4 +3,4 @@
 
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| | | | | |
+|   |  |  |  | |
