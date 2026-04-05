@@ -3,7 +3,7 @@
 **-Período de escrutinio:** 1 ms
 ***************************************************************************************************************************************************************************************************************************
 ## 1. Descripción del Modelo
-
+LED que se prende al resibir una petición del sistema para abrir la barrera, la cual se mantiene prendida hasta que la barrera vuelva al estado de reposo inicial. Una vez abierta la barrera en su totalidad, espera una petición del sistema para cerrarla. Cada vez que se termina de mover la barrera (abrir/cerrar), envía un evento al sistema avisando que terminó la acción.
 ***************************************************************************************************************************************************************************************************************************
 ## 2. Estados
 * **`ST_ACT_IDLE`**: Reposo. LED apagado, barrera abajo.
@@ -30,8 +30,8 @@
 
 ### Acciones Externas
 
-* **`raise EV_SYS_READY`**: Emite la señal al sistema
-* 
+* **`raise EV_SYS_READY`**: Emite la señal al sistema.
+  
 ### Actuator Statechart - State Transition Table
 
 | Current State | Event | [Guard] | Next State | Actions |
