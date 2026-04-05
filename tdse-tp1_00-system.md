@@ -19,8 +19,8 @@ Procesa las señales recibidas del sensor y envía señales de orden al actuador
   
 ## 4. Acciones
 ### Acciones Externas
-* **`EV_ACT_OPEN`**: Orden al actuador para iniciar la apertura de la barrera.
-* **`EV_ACT_CLOSE`**: Orden al actuador para iniciar el cierre de la barrea.
+* **`raise EV_ACT_OPEN`**: Orden al actuador para iniciar la apertura de la barrera.
+* **`raise EV_ACT_CLOSE`**: Orden al actuador para iniciar el cierre de la barrea.
 
 
 ***************************************************************************************************************************************************************************************************************************
