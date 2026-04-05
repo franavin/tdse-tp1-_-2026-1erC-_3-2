@@ -27,17 +27,17 @@ actuadores.
 ***************************************************************************************************************************************************************************************************************************
 **Modelos - Parking Ticket Dispenser Machine (Entry)**
 
-**Modelo de sensor (escrutar)**
+**Modelo de sensor (escrutar)**  
 Objetivo: Monitorear el estado físico de las entradas y filtrar señales no deseadas. Ej: (Camera, Button y Sensor Coil)  
 Entrada: Señal eléctrica directa del hardware.  
 Salida: Evento lógico de sistema una vez validado.
 
-**Modelo de sistema (procesar)**
+**Modelo de sistema (procesar)**  
 Objetivo: Actuar como el "cerebro" o lógica de control de la máquina de tickets. Recibe los eventos ya "limpios" del modelo Sensor. Basándose en el estado actual de la máquina (ej. esperando vehículo, esperando impresión) y en condiciones lógicas (Guards), decide qué acción debe realizarse. Es el encargado de la "inteligencia" del negocio (verificar si hay lugar, validar tarjetas, etc.).  
 Entrada: Eventos provenientes del Sensor.  
 Salida: Eventos dirigidos al Actuador.
 
-**Modelo de actuator (actuar)**
+**Modelo de actuator (actuar)**  
 Objetivo: Traducir las órdenes lógicas del sistema en acciones físicas.  
 Entrada: Eventos provenientes del sistema.  
 Salida: Cambio de estado en los periféricos de salida (Display, Printer, Barrier y Sever).
