@@ -12,17 +12,25 @@ Una vez que el sistema detecte que el estado físico es estable durante un tiemp
 una "Signal" (un mensaje o evento de sistema) hacia el módulo de procesamiento.  
 
 ***************************************************************************************************************************************************************************************************************************
-## 2. Eventos
+## 2. Estados
+
+* **`ST_BTN_XX_UP`**: Es el estado de reposo cuando el botón está sin presionar.
+* **`ST_BTN_XX_FALLING`**: Es el estado transitorio donde se valida si se presionó el botón.
+* **`ST_BTN_XX_DOWN`**: Es el estado estable cuando el botón está presionado.
+* **`ST_BTN_XX_RISING`**: Es el estado transitorio, que en este caso valida si se soltó.
+ 
+***************************************************************************************************************************************************************************************************************************
+## 3. Eventos
 En este caso, los eventos del modelo Sensor representan el comportamiento del botón, y más enspecífico, su posicionamiento para con la entrada del microcontrolador, ya que al ser un sensor del tipo binario, solamente nos genera dos eventos base:  
 * **`EV_BTN_XX_UP`**: Se detecta un nivel lógico alto en el pin (El botón está físicamente no está presionado o liberado).
 * **`EV_BTN_XX_DOWN`**: Se detecta un nivel lógico bajo en el pin (El botón está físicamente presionado).
 
-## 3. Variables de Control
+## 4. Variables de Control
 Para comprobar los eventos físicos a lo largo del tiempo, el módulo utiliza una variable de control la cual condiciona las transiciones de estado:
 * **`tick`**: Variable temporizadora de cuenta regresiva.
 * **`DEL_BTN_XX_MAX`**: Es una constante que define el tiempo de validación anti-rebote.
 
-## 4. Acciones
+## 5. Acciones
 Las acciones son las respuestas de la máquina de estados ante un Evento válido que cumple con su condición de guarda. Se dividen en manejo interno y 
 señales al sistema central (Signals).  
 
@@ -43,7 +51,7 @@ el pin vuelva a subir). Ocurre al transicionar al estado estable `ST_BTN_XX_FALL
 pin vuelva a bajar). Ocurre al transicionar al estado estable `ST_BTN_XX_UP`.
 
 ***************************************************************************************************************************************************************************************************************************
-## 5. Sensor Statechart - State Transition Table
+## 6. Sensor Statechart - State Transition Table
 
 ### Tabla del botón en estado presionado
 | Current State | Event | [Guard] | Next State | Actions |
