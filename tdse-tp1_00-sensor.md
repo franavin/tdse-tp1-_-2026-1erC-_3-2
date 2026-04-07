@@ -43,13 +43,24 @@ el pin vuelva a subir). Ocurre al transicionar al estado estable `ST_BTN_XX_FALL
 pin vuelva a bajar). Ocurre al transicionar al estado estable `ST_BTN_XX_UP`.
 
 ***************************************************************************************************************************************************************************************************************************
-### Sensor Statechart - State Transition Table
+## 5. Sensor Statechart - State Transition Table
 
+### Tabla del botón en estado presionado
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| **ST_BTN_XX_UP** | EV_BTN_XX_UP | | **ST_BTN_XX_UP** | |
-| | EV_BTN_XX_DOWN | | **ST_BTN_XX_FALLING** | tick = DEL_BTN_XX_MAX |
-| **ST_BTN_XX_FALLING** | EV_BTN_XX_UP | [tick > 0] | **ST_BTN_XX_FALLING** | tick-- |
-| | | [tick == 0] | **ST_BTN_XX_UP** |raise EV_SYS_XX_UP |
-| | EV_BTN_XX_DOWN | [tick > 0] | **ST_BTN_XX_FALLING** | tick-- |
-| | | [tick == 0] | **ST_BTN_XX_DOWN** | raise EV_SYS_XX_DOWN |
+| **ST_BTN_XX_UP** | EV_BTN_XX_UP | | ST_BTN_XX_UP | |
+| | EV_BTN_XX_DOWN | | ST_BTN_XX_FALLING | tick = DEL_BTN_XX_MAX |
+| **ST_BTN_XX_FALLING** | EV_BTN_XX_UP | [tick > 0] | ST_BTN_XX_FALLING | tick-- |
+| | | [tick == 0] | ST_BTN_XX_UP | |
+| | EV_BTN_XX_DOWN | [tick > 0] | ST_BTN_XX_FALLING | tick-- |
+| | | [tick == 0] | ST_BTN_XX_DOWN | raise EV_SYS_XX_DOWN |
+
+### Tabla del botón en estado liberado
+| Current State | Event | [Guard] | Next State | Actions |
+| :--- | :--- | :--- | :--- | :--- |
+| **ST_BTN_XX_DOWN** | EV_BTN_XX_DOWN | | ST_BTN_XX_DOWN | |
+| | EV_BTN_XX_UP | | ST_BTN_XX_RISING | tick = DEL_BTN_XX_MAX |
+| **ST_BTN_XX_RISING** | EV_BTN_XX_DOWN | [tick > 0] | ST_BTN_XX_RISING | tick-- |
+| | | [tick == 0] | ST_BTN_XX_DOWN | |
+| | EV_BTN_XX_UP | [tick > 0] | ST_BTN_XX_RISING | tick-- |
+| | | [tick == 0] | ST_BTN_XX_UP | raise EV_SYS_XX_UP |
