@@ -4,4 +4,5 @@
  ### Responsable de la entrega: 
  | Padrón | Apellidos, Nombres      | Fecha    | Deadline  | 
  | :----- | :---------------------  | :------: | :-------: | 
-  | 106747 | Avincetto, Franco Joaquín || Semana 04 | 
+  | 106747 | Avincetto, Franco Joaquín || Semana 04 |   
+  
